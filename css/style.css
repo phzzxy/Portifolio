@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #151721;
+    color: #9fa1ad;
+    line-height: 1.6;
+    overflow-x: hidden; /* impede a barra horizontal indesejada*/
+}
+
+body.is-loading{overflow: hidden;} /*trava a rolagem enquanto o loader está na tela*/
+
+/* LOADING */
+#loader{
+    position: fixed;
+    z-index: 9999;/*camada mais alta que existe */
+    width: 100%;
+    height: 100%;
+    background-color: #151721;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    transition: opacity .55s ease;
+}
+
+#loader.hide{ /*estado aplicado pelo JavaScript*/
+    opacity: 0; /*Totalmente Transparente*/
+    pointer-events: none; /*e "invisivel" aos cliques */
+}
+
+@keyframes spin{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+.spinner{
+    width: 50px;
+    height: 50px;
+    border: 4.5px solid #262a34;
+    border-top-color: #00cc8f;
+    border-radius: 50%;
+    animation: spin .9s linear infinite;
+}
